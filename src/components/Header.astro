@@ -1,0 +1,35 @@
+---
+import { me } from "@/lib/constants";
+
+const navItems: {
+	title: string;
+	url: string;
+}[] = [
+	{ title: "Experiencia", url: "/#experiencia" },
+	{ title: "Proyectos", url: "/#proyectos" },
+	{ title: "Sobre mi", url: "/#sobre-mi" },
+	{ title: "Contacto", url: `mailto:${me.email}` },
+];
+---
+
+<header class="sticky top-0 z-10 p-4">
+	<nav class="flex items-center justify-center">
+		<ul
+			style={{ gridTemplateColumns: `repeat(${navItems.length}, 1fr)` }}
+			class="bg-secondary/50 grid gap-4 overflow-hidden rounded-full px-4 py-2 font-medium backdrop-blur-sm"
+		>
+			{
+				navItems.map((link) => (
+					<li>
+						<a
+							href={link.url}
+							class="text-primary/70 hover:text-primary block rounded-full text-center text-sm"
+						>
+							{link.title}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>
