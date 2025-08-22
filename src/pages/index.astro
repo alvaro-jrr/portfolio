@@ -1,6 +1,7 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/Header.astro";
+import Hero from "@/components/Hero.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
@@ -9,5 +10,7 @@ import Header from "@/components/Header.astro";
 >
 	<Header />
 
-	<div class="min-h-[200vh]"></div>
+	<main>
+		<Hero />
+	</main>
 </BaseLayout>

@@ -1,0 +1,13 @@
+---
+type Props = astroHTML.JSX.IntrinsicElements["section"];
+
+const { id, class: className, ...props }: Props = Astro.props;
+---
+
+<section
+	id={id}
+	class={`${className} px-4 container mx-auto py-24 md:py-36`}
+	{...props}
+>
+	<slot />
+</section>

@@ -5,11 +5,22 @@
 	--color-secondary: #7ca982;
 	--color-background: #f1f7ed;
 	--color-foreground: #131810;
-	--color-accent: #af7a6d;
+	--color-accent: #e3d5ca;
+	--font-sans: "Geist Variable", sans-serif;
+	--font-mono: "Geist Mono Variable", monospace;
 }
 
 @layer base {
 	html {
 		@apply text-foreground scroll-smooth;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-mono;
 	}
 }
