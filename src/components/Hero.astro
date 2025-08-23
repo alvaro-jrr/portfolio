@@ -1,0 +1,73 @@
+---
+import profilePicture from "@/assets/profile.webp";
+import { me } from "@/lib/constants";
+import { FileTextIcon, MailIcon } from "@lucide/astro";
+import { Image } from "astro:assets";
+import IconLink from "./IconLink.astro";
+import Github from "./icons/Github.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import SectionContainer from "./SectionContainer.astro";
+---
+
+<SectionContainer class="grid grid-cols-1 lg:grid-cols-6">
+	<div class="col-span-4 space-y-6">
+		<Image
+			src={profilePicture}
+			alt="Foto de perfil"
+			class="size-[4.5rem] rounded-full object-contain"
+			loading="eager"
+		/>
+
+		<div class="space-y-2 font-medium">
+			<h1 class="text-2xl md:text-3xl lg:text-4xl">Alvaro Resplandor</h1>
+
+			<h2 class="text-3xl md:text-4xl lg:text-5xl">
+				Desarrollador de Software
+			</h2>
+		</div>
+
+		<p class="text-lg md:text-xl">
+			Desarrollo soluciones de software limpias y eficientes para la web y
+			dispositivos móviles
+		</p>
+
+		<div class="flex flex-col gap-2 md:flex-row">
+			<a
+				href={`mailto:${me.email}`}
+				class="bg-accent text-accent-foreground hover:bg-accent/80 flex w-fit items-center gap-2 rounded-full px-4 py-2 transition-colors"
+			>
+				<MailIcon class="size-6" />
+
+				<span>Contáctame</span>
+			</a>
+
+			<div class="flex gap-2">
+				<IconLink
+					href={me.resumeUrl}
+					title="CV"
+					download="Alvaro Resplandor - CV"
+				>
+					<FileTextIcon class="inline size-6" />
+				</IconLink>
+
+				<IconLink
+					href={me.linkedin}
+					title="LinkedIn"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<LinkedIn class="inline size-6" />
+				</IconLink>
+
+				<IconLink
+					href={me.github}
+					title="GitHub"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<Github class="inline size-6" />
+				</IconLink>
+			</div>
+		</div>
+	</div>
+</SectionContainer>
