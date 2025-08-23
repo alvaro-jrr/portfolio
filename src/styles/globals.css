@@ -8,10 +8,21 @@
 	--color-background: #232946;
 	--color-accent: #eebbc3;
 	--color-accent-foreground: #232946;
+	--font-sans: "Geist Variable", sans-serif;
+	--font-mono: "Geist Mono Variable", monospace;
 }
 
 @layer base {
 	html {
 		@apply bg-background text-paragraph scroll-smooth;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-headline font-mono;
 	}
 }
