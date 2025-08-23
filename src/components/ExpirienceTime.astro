@@ -1,0 +1,28 @@
+---
+import type { MonthYear } from "../lib/types";
+
+interface Props {
+	time?: MonthYear;
+}
+
+const { time }: Props = Astro.props;
+
+const formatter = new Intl.DateTimeFormat("es-ES", {
+	month: "short",
+	year: "numeric",
+});
+
+const formattedTime = time
+	? formatter.format(new Date(time.year, time.month - 1))
+	: null;
+
+const datetime = time ? `${time.year}-${time.month}` : null;
+---
+
+{
+	formattedTime ? (
+		<time datetime={datetime}>{formattedTime}</time>
+	) : (
+		<span>Actualmente</span>
+	)
+}
