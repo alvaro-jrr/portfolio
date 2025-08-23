@@ -1,7 +1,17 @@
 @import "tailwindcss";
 
+@theme {
+	--color-paragraph: #b8c1ec;
+	--color-header: #b8c1ec;
+	--color-header-foreground: #232946;
+	--color-headline: #fffffe;
+	--color-background: #232946;
+	--color-accent: #eebbc3;
+	--color-accent-foreground: #232946;
+}
+
 @layer base {
-  html {
-    @apply scroll-smooth;
-  }
+	html {
+		@apply bg-background text-paragraph scroll-smooth;
+	}
 }
