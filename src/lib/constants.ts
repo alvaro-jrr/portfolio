@@ -11,6 +11,7 @@ interface Me {
 	experiences: Experience[];
 	projects: Project[];
 	technologies: TechonologyId[];
+	websiteBaseUrl: string;
 }
 
 /**
@@ -80,4 +81,5 @@ export const me: Me = {
 		},
 	],
 	technologies: Object.keys(TECHNOLOGIES) as TechonologyId[],
+	websiteBaseUrl: "https://alvaro-resplandor.vercel.app",
 };
