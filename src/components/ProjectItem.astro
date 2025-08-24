@@ -1,0 +1,68 @@
+---
+import type { Project } from "@/lib/types";
+import { CodeIcon, LinkIcon } from "@lucide/astro";
+import { Image } from "astro:assets";
+import TechnologyPill from "./TechnologyPill.astro";
+
+interface Props {
+	project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="grid w-full grid-cols-1 gap-6 lg:grid-cols-2">
+	<div class="bg-paragraph h-fit rounded-md p-4">
+		<Image src={project.image} alt={project.title} class="w-full rounded-md" />
+	</div>
+
+	<div class="space-y-6">
+		<div class="space-y-2">
+			<h3 class="text-2xl font-medium">{project.title}</h3>
+
+			<ul class="flex flex-wrap gap-2">
+				{
+					project.technologies.map((technology) => (
+						<li>
+							<TechnologyPill technology={technology} />
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<p>{project.description}</p>
+
+		<div class="flex gap-2">
+			{
+				project.previewUrl ? (
+					<a
+						href={project.previewUrl}
+						target="_blank"
+						class="bg-accent text-accent-foreground flex items-center gap-2 rounded-full px-6 py-2 font-medium"
+					>
+						<LinkIcon class="size-6" />
+
+						<span>Preview</span>
+					</a>
+				) : null
+			}
+
+			{
+				project.codeUrl ? (
+					<a
+						href={project.codeUrl}
+						target="_blank"
+						class="border-paragraph text-paragraph flex items-center gap-2 rounded-full border px-6 py-2 font-medium"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<CodeIcon class="size-6" />
+
+						<span>Código</span>
+					</a>
+				) : null
+			}
+		</div>
+	</div>
+</article>

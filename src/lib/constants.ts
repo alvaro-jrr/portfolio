@@ -1,4 +1,6 @@
-import type { Experience } from "./types";
+import type { Experience, Project } from "./types";
+import siecoh from "@/assets/siecoh.webp";
+import iAnimalitos from "@/assets/ianimalitos.webp";
 
 interface Me {
 	email: string;
@@ -6,6 +8,7 @@ interface Me {
 	github: string;
 	resumeUrl: string;
 	experiences: Experience[];
+	projects: Project[];
 }
 
 /**
@@ -48,6 +51,25 @@ export const me: Me = {
 					year: 2023,
 				},
 			},
+		},
+	],
+	projects: [
+		{
+			title: "SIECOH",
+			description:
+				"Desarrollé una aplicación web robusta para que los trabajadores registren y accedan a datos climatológicos. Con SIECOH, pueden gestionar registros históricos de diversas estaciones e ingresar nuevos datos de manera eficiente. Esta herramienta simplifica el manejo de información climática, asegurando un registro preciso y accesible.",
+			technologies: ["react", "tailwind", "php", "reactRouter", "swr"],
+			image: siecoh,
+			codeUrl: "https://github.com/alvaro-jrr/siecoh",
+			previewUrl: "https://siecoh.com",
+		},
+		{
+			title: "iAnimalitos",
+			description:
+				"Desarrollé una aplicación móvil para acceder a los resultados del sorteo de animalitos de Venezuela y el análisis de las probabilidades de aparición de los animalitos para cada una de las casas de loterías.",
+			technologies: ["flutter"],
+			image: iAnimalitos,
+			codeUrl: "https://github.com/alvaro-jrr/ia-animalitos",
 		},
 	],
 };
