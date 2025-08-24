@@ -1,4 +1,5 @@
 ---
+import { me } from "@/lib/constants";
 import "@/styles/globals.css";
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
@@ -6,9 +7,14 @@ import "@fontsource-variable/geist-mono";
 interface Props {
 	title: string;
 	description?: string;
+	image?: string;
+	url?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image, url = "/" } = Astro.props;
+
+// Prepapre the url to be used in the meta tags.
+const websiteUrl = `${me.websiteBaseUrl}${url.startsWith("/") ? url : `/${url}`}`;
 ---
 
 <html lang="en">
@@ -17,8 +23,28 @@ const { title, description } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Primary Meta Tags -->
 		<title>{title}</title>
 		{description && <meta name="description" content={description} />}
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={websiteUrl} />
+		<meta property="og:title" content={title} />
+		{description && <meta property="og:description" content={description} />}
+		{image && <meta property="og:image" content={image} />}
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={websiteUrl} />
+		<meta property="twitter:title" content={title} />
+		{
+			description && (
+				<meta property="twitter:description" content={description} />
+			)
+		}
+		{image && <meta property="twitter:image" content={image} />}
 	</head>
 	<body>
 		<slot />
