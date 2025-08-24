@@ -1,9 +1,15 @@
-import FlutterIcon from "@/components/icons/Flutter.astro";
-import PhpIcon from "@/components/icons/Php.astro";
-import ReactIcon from "@/components/icons/React.astro";
-import ReactRouterIcon from "@/components/icons/ReactRouter.astro";
-import SWRIcon from "@/components/icons/Swr.astro";
-import TailwindIcon from "@/components/icons/Tailwind.astro";
+import FlutterIcon from "@/components/icons/FlutterIcon.astro";
+import PhpIcon from "@/components/icons/PhpIcon.astro";
+import ReactIcon from "@/components/icons/ReactIcon.astro";
+import ReactRouterIcon from "@/components/icons/ReactRouterIcon.astro";
+import SWRIcon from "@/components/icons/SwrIcon.astro";
+import TailwindIcon from "@/components/icons/TailwindIcon.astro";
+import AstroIcon from "@/components/icons/AstroIcon.astro";
+import TypeScriptIcon from "@/components/icons/TypeScriptIcon.astro";
+import JavaScriptIcon from "@/components/icons/JavaScriptIcon.astro";
+import LaravelIcon from "@/components/icons/LaravelIcon.astro";
+import DartIcon from "@/components/icons/DartIcon.astro";
+import PrismaIcon from "@/components/icons/PrismaIcon.astro";
 
 /**
  * The technologies tags.
@@ -20,9 +26,14 @@ export const TECHNOLOGIES = {
 		icon: PhpIcon,
 	},
 	tailwind: {
-		label: "Tailwind",
+		label: "Tailwind CSS",
 		backgroundColor: "#006591",
 		icon: TailwindIcon,
+	},
+	dart: {
+		label: "Dart",
+		backgroundColor: "#042448",
+		icon: DartIcon,
 	},
 	flutter: {
 		label: "Flutter",
@@ -38,6 +49,31 @@ export const TECHNOLOGIES = {
 		label: "SWR",
 		backgroundColor: "#121212",
 		icon: SWRIcon,
+	},
+	astro: {
+		label: "Astro",
+		backgroundColor: "#000",
+		icon: AstroIcon,
+	},
+	typescript: {
+		label: "TypeScript",
+		backgroundColor: "#007ACC",
+		icon: TypeScriptIcon,
+	},
+	javascript: {
+		label: "JavaScript",
+		backgroundColor: "oklch(47.6% 0.114 61.907)",
+		icon: JavaScriptIcon,
+	},
+	laravel: {
+		label: "Laravel",
+		backgroundColor: "#111110",
+		icon: LaravelIcon,
+	},
+	prisma: {
+		label: "Prisma",
+		backgroundColor: "#1C2044",
+		icon: PrismaIcon,
 	},
 };
 
