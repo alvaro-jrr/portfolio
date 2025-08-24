@@ -1,0 +1,30 @@
+---
+import type { Experience } from "../lib/types";
+import ExpirienceTime from "./ExpirienceTime.astro";
+
+interface Props {
+	experience: Experience;
+}
+
+const { experience }: Props = Astro.props;
+---
+
+<article
+	class="border-l-paragraph relative grid grid-cols-1 gap-6 border-l-2 p-6 lg:grid-cols-6"
+>
+	<span class="text-accent absolute top-2 -left-2 block text-5xl">&bullet;</span
+	>
+
+	<div class="lg:col-span-2">
+		<h3 class="text-accent mb-1 font-medium">{experience.role}</h3>
+
+		<h4 class="mb-2 font-medium">{experience.company}</h4>
+
+		<p class="text-sm">
+			<ExpirienceTime time={experience.time.start} />
+			- <ExpirienceTime time={experience.time.end} />
+		</p>
+	</div>
+
+	<p class="lg:col-span-4">{experience.description}</p>
+</article>

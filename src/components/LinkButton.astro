@@ -1,0 +1,27 @@
+---
+import { cn } from "@/lib/utils";
+
+type Props = astroHTML.JSX.IntrinsicElements["a"] & {
+	variant?: "primary" | "outline";
+};
+
+const { variant = "primary", class: className, ...props } = Astro.props;
+
+const themes: Record<NonNullable<Props["variant"]>, string> = {
+	primary: "bg-accent text-accent-foreground hover:bg-accent/80",
+	outline: "border-paragraph text-paragraph border hover:bg-paragraph/20",
+};
+
+const theme = themes[variant];
+---
+
+<a
+	class={cn(
+		theme,
+		"rounded-full px-6 py-2 font-medium transition-colors flex gap-2",
+		className,
+	)}
+	{...props}
+>
+	<slot />
+</a>

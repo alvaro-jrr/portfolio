@@ -1,0 +1,20 @@
+---
+import { me } from "@/lib/constants";
+import ProjectItem from "./ProjectItem.astro";
+import SectionContainer from "./SectionContainer.astro";
+import SectionTitle from "./SectionTitle.astro";
+---
+
+<SectionContainer id="projects" class="space-y-10">
+	<SectionTitle>Proyectos</SectionTitle>
+
+	<ul class="flex flex-col gap-8">
+		{
+			me.projects.map((project) => (
+				<li>
+					<ProjectItem project={project} />
+				</li>
+			))
+		}
+	</ul>
+</SectionContainer>
