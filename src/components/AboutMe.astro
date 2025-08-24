@@ -1,0 +1,56 @@
+---
+import { me } from "@/lib/constants";
+import SectionContainer from "./SectionContainer.astro";
+import SectionTitle from "./SectionTitle.astro";
+import TechnologyPill from "./TechnologyPill.astro";
+---
+
+<SectionContainer id="about-me" class="space-y-10">
+	<SectionTitle>Sobre Mi</SectionTitle>
+
+	<div class="grid grid-cols-1 lg:grid-cols-6">
+		<div class="space-y-4 lg:col-span-4">
+			<p>
+				Mi nombre es Alvaro Resplandor, estudio <strong
+					>Ingeniería Informática</strong
+				> en la <a
+					href="https://www.uneg.edu.ve/"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Universidad Nacional Experimental de Guayana</a
+				> y actualmente estoy desarrollando mi trabajo de grado para la obtención
+				del titulo.
+			</p>
+
+			<p>
+				Cuento con experiencia en el <strong
+					>desarrollo de aplicaciones web y móviles</strong
+				>, principalmente con el uso de React y Flutter. Mi pasión por la
+				tecnología, me impulsa a estar en <strong>constante aprendizaje</strong>
+				y a explorar nuevas herramientas y metodologías, con el objetivo de <strong
+					>hacer productos que superen las expectativas</strong
+				> y brinden una grata experiencia al usuario. Entre las tecnologías que he
+				trabajado, se encuentran las siguientes:
+			</p>
+		</div>
+	</div>
+
+	<ul class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+		{
+			me.technologies.map((technology) => (
+				<li>
+					<TechnologyPill
+						class="gap-4 rounded-md px-6 py-4 text-base"
+						technology={technology}
+					/>
+				</li>
+			))
+		}
+	</ul>
+</SectionContainer>
+
+<style>
+	strong {
+		font-weight: 400;
+	}
+</style>

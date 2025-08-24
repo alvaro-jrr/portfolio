@@ -1,11 +1,13 @@
 ---
 import { TECHNOLOGIES, type TechonologyId } from "@/lib/technologies";
+import { cn } from "@/lib/utils";
 
 interface Props {
 	technology: TechonologyId;
+	class?: string;
 }
 
-const { technology: technologyId } = Astro.props;
+const { technology: technologyId, class: className } = Astro.props;
 
 const technology = TECHNOLOGIES[technologyId];
 const Icon = technology.icon;
@@ -15,9 +17,12 @@ const Icon = technology.icon;
 	style={{
 		backgroundColor: technology.backgroundColor,
 	}}
-	class="flex flex-shrink-0 items-center gap-2 rounded-full px-3 py-1 text-sm font-medium"
+	class={cn(
+		"flex flex-shrink-0 items-center gap-2 rounded-full px-3 py-1 text-sm font-medium text-white",
+		className,
+	)}
 >
 	{Icon ? <Icon class="size-4" /> : null}
 
-	<span class="text-xs font-medium text-white">{technology.label}</span>
+	<span>{technology.label}</span>
 </div>

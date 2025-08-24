@@ -25,4 +25,8 @@
 	h6 {
 		@apply text-headline font-mono;
 	}
+
+	strong {
+		@apply text-accent;
+	}
 }

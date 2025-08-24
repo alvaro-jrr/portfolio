@@ -1,6 +1,7 @@
 import type { Experience, Project } from "./types";
 import siecoh from "@/assets/siecoh.webp";
 import iAnimalitos from "@/assets/ianimalitos.webp";
+import { TECHNOLOGIES, type TechonologyId } from "./technologies";
 
 interface Me {
 	email: string;
@@ -9,6 +10,7 @@ interface Me {
 	resumeUrl: string;
 	experiences: Experience[];
 	projects: Project[];
+	technologies: TechonologyId[];
 }
 
 /**
@@ -58,16 +60,24 @@ export const me: Me = {
 			title: "SIECOH",
 			description:
 				"Desarrollé una aplicación web robusta para que los trabajadores registren y accedan a datos climatológicos. Con SIECOH, pueden gestionar registros históricos de diversas estaciones e ingresar nuevos datos de manera eficiente. Esta herramienta simplifica el manejo de información climática, asegurando un registro preciso y accesible.",
-			technologies: ["react", "tailwind", "php", "reactRouter", "swr"],
+			technologies: [
+				"react",
+				"tailwind",
+				"php",
+				"reactRouter",
+				"swr",
+				"typescript",
+			],
 			image: siecoh,
 		},
 		{
 			title: "iAnimalitos",
 			description:
 				"Desarrollé una aplicación móvil para acceder a los resultados del sorteo de animalitos de Venezuela y el análisis de las probabilidades de aparición de los animalitos para cada una de las casas de loterías.",
-			technologies: ["flutter"],
+			technologies: ["flutter", "dart"],
 			image: iAnimalitos,
 			codeUrl: "https://github.com/alvaro-jrr/ia-animalitos",
 		},
 	],
+	technologies: Object.keys(TECHNOLOGIES) as TechonologyId[],
 };
