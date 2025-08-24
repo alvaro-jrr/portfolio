@@ -60,8 +60,6 @@ export const me: Me = {
 				"Desarrollé una aplicación web robusta para que los trabajadores registren y accedan a datos climatológicos. Con SIECOH, pueden gestionar registros históricos de diversas estaciones e ingresar nuevos datos de manera eficiente. Esta herramienta simplifica el manejo de información climática, asegurando un registro preciso y accesible.",
 			technologies: ["react", "tailwind", "php", "reactRouter", "swr"],
 			image: siecoh,
-			codeUrl: "https://github.com/alvaro-jrr/siecoh",
-			previewUrl: "https://siecoh.com",
 		},
 		{
 			title: "iAnimalitos",

@@ -3,9 +3,9 @@ import profilePicture from "@/assets/profile.webp";
 import { me } from "@/lib/constants";
 import { FileTextIcon, MailIcon } from "@lucide/astro";
 import { Image } from "astro:assets";
-import IconLink from "./IconLink.astro";
 import Github from "./icons/Github.astro";
 import LinkedIn from "./icons/LinkedIn.astro";
+import LinkButton from "./LinkButton.astro";
 import SectionContainer from "./SectionContainer.astro";
 ---
 
@@ -32,41 +32,47 @@ import SectionContainer from "./SectionContainer.astro";
 		</p>
 
 		<div class="flex flex-col gap-2 md:flex-row">
-			<a
-				href={`mailto:${me.email}`}
-				class="bg-accent text-accent-foreground hover:bg-accent/80 flex w-fit items-center gap-2 rounded-full px-4 py-2 transition-colors"
-			>
+			<LinkButton href={`mailto:${me.email}`}>
 				<MailIcon class="size-6" />
 
 				<span>Contáctame</span>
-			</a>
+			</LinkButton>
 
 			<div class="flex gap-2">
-				<IconLink
+				<LinkButton
 					href={me.resumeUrl}
 					title="CV"
 					download="Alvaro Resplandor - CV"
+					variant="outline"
 				>
 					<FileTextIcon class="inline size-6" />
-				</IconLink>
 
-				<IconLink
+					<span class="sr-only">CV</span>
+				</LinkButton>
+
+				<LinkButton
 					href={me.linkedin}
 					title="LinkedIn"
 					target="_blank"
 					rel="noopener noreferrer"
+					variant="outline"
 				>
 					<LinkedIn class="inline size-6" />
-				</IconLink>
 
-				<IconLink
+					<span class="sr-only">LinkedIn</span>
+				</LinkButton>
+
+				<LinkButton
 					href={me.github}
 					title="GitHub"
 					target="_blank"
 					rel="noopener noreferrer"
+					variant="outline"
 				>
 					<Github class="inline size-6" />
-				</IconLink>
+
+					<span class="sr-only">GitHub</span>
+				</LinkButton>
 			</div>
 		</div>
 	</div>

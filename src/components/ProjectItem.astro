@@ -2,6 +2,7 @@
 import type { Project } from "@/lib/types";
 import { CodeIcon, LinkIcon } from "@lucide/astro";
 import { Image } from "astro:assets";
+import LinkButton from "./LinkButton.astro";
 import TechnologyPill from "./TechnologyPill.astro";
 
 interface Props {
@@ -36,31 +37,26 @@ const { project } = Astro.props;
 		<div class="flex gap-2">
 			{
 				project.previewUrl ? (
-					<a
-						href={project.previewUrl}
-						target="_blank"
-						class="bg-accent text-accent-foreground flex items-center gap-2 rounded-full px-6 py-2 font-medium"
-					>
+					<LinkButton href={project.previewUrl} target="_blank">
 						<LinkIcon class="size-6" />
 
 						<span>Preview</span>
-					</a>
+					</LinkButton>
 				) : null
 			}
 
 			{
 				project.codeUrl ? (
-					<a
+					<LinkButton
 						href={project.codeUrl}
 						target="_blank"
-						class="border-paragraph text-paragraph flex items-center gap-2 rounded-full border px-6 py-2 font-medium"
 						rel="noopener noreferrer"
-						target="_blank"
+						variant="outline"
 					>
 						<CodeIcon class="size-6" />
 
 						<span>Código</span>
-					</a>
+					</LinkButton>
 				) : null
 			}
 		</div>

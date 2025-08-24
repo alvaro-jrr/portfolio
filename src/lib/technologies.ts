@@ -36,7 +36,7 @@ export const TECHNOLOGIES = {
 	},
 	swr: {
 		label: "SWR",
-		backgroundColor: "#006591",
+		backgroundColor: "#121212",
 		icon: SWRIcon,
 	},
 };
