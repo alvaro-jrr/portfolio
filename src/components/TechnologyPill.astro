@@ -1,0 +1,23 @@
+---
+import { TECHNOLOGIES, type TechonologyId } from "@/lib/technologies";
+
+interface Props {
+	technology: TechonologyId;
+}
+
+const { technology: technologyId } = Astro.props;
+
+const technology = TECHNOLOGIES[technologyId];
+const Icon = technology.icon;
+---
+
+<div
+	style={{
+		backgroundColor: technology.backgroundColor,
+	}}
+	class="flex flex-shrink-0 items-center gap-2 rounded-full px-3 py-1 text-sm font-medium"
+>
+	{Icon ? <Icon class="size-4" /> : null}
+
+	<span class="text-xs font-medium text-white">{technology.label}</span>
+</div>

@@ -1,9 +1,11 @@
+import type { TechonologyId } from "./technologies";
+
 export interface MonthYear {
 	month: number;
 	year: number;
 }
 
-export type Experience = {
+export interface Experience {
 	company: string;
 	role: string;
 	description: string;
@@ -11,4 +13,13 @@ export type Experience = {
 		start: MonthYear;
 		end?: MonthYear;
 	};
-};
+}
+
+export interface Project {
+	title: string;
+	description: string;
+	technologies: TechonologyId[];
+	image: ImageMetadata;
+	previewUrl?: string;
+	codeUrl?: string;
+}

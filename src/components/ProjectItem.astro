@@ -1,0 +1,64 @@
+---
+import type { Project } from "@/lib/types";
+import { CodeIcon, LinkIcon } from "@lucide/astro";
+import { Image } from "astro:assets";
+import LinkButton from "./LinkButton.astro";
+import TechnologyPill from "./TechnologyPill.astro";
+
+interface Props {
+	project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="grid w-full grid-cols-1 gap-6 lg:grid-cols-2">
+	<div class="bg-paragraph h-fit rounded-md p-4">
+		<Image src={project.image} alt={project.title} class="w-full rounded-md" />
+	</div>
+
+	<div class="space-y-6">
+		<div class="space-y-2">
+			<h3 class="text-2xl font-medium">{project.title}</h3>
+
+			<ul class="flex flex-wrap gap-2">
+				{
+					project.technologies.map((technology) => (
+						<li>
+							<TechnologyPill technology={technology} />
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<p>{project.description}</p>
+
+		<div class="flex gap-2">
+			{
+				project.previewUrl ? (
+					<LinkButton href={project.previewUrl} target="_blank">
+						<LinkIcon class="size-6" />
+
+						<span>Preview</span>
+					</LinkButton>
+				) : null
+			}
+
+			{
+				project.codeUrl ? (
+					<LinkButton
+						href={project.codeUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						variant="outline"
+					>
+						<CodeIcon class="size-6" />
+
+						<span>Código</span>
+					</LinkButton>
+				) : null
+			}
+		</div>
+	</div>
+</article>
