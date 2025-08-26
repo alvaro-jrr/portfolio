@@ -79,6 +79,7 @@ export const me: Me = {
 			technologies: ["flutter", "dart"],
 			image: iAnimalitos,
 			codeUrl: "https://github.com/alvaro-jrr/ia-animalitos",
+			inReview: true,
 		},
 		{
 			title: "The Telecom Post",

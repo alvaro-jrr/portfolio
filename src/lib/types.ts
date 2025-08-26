@@ -19,6 +19,7 @@ export interface Project {
 	title: string;
 	description: string;
 	technologies: TechonologyId[];
+	inReview?: boolean;
 	image: ImageMetadata;
 	previewUrl?: string;
 	codeUrl?: string;

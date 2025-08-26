@@ -12,6 +12,7 @@
 			}
 		}
 	],
+	"tailwindFunctions": ["cn"],
 	"tabWidth": 2,
 	"useTabs": true
 }

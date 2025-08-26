@@ -1,6 +1,6 @@
 ---
 import type { Project } from "@/lib/types";
-import { CodeIcon, LinkIcon } from "@lucide/astro";
+import { ClockIcon, CodeIcon, LinkIcon } from "@lucide/astro";
 import { Image } from "astro:assets";
 import LinkButton from "./LinkButton.astro";
 import TechnologyPill from "./TechnologyPill.astro";
@@ -34,7 +34,17 @@ const { project } = Astro.props;
 
 		<p>{project.description}</p>
 
-		<div class="flex gap-2">
+		<div class="flex flex-wrap gap-2">
+			{
+				project.inReview ? (
+					<button class="bg-accent text-accent-foreground flex items-center gap-2 rounded-full px-6 py-2 font-medium">
+						<ClockIcon class="size-6" />
+
+						<span>En revisión</span>
+					</button>
+				) : null
+			}
+
 			{
 				project.previewUrl ? (
 					<LinkButton href={project.previewUrl} target="_blank">
