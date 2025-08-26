@@ -3,6 +3,9 @@ import { me } from "@/lib/constants";
 import SectionContainer from "./SectionContainer.astro";
 import SectionTitle from "./SectionTitle.astro";
 import TechnologyPill from "./TechnologyPill.astro";
+
+// Calculate the number of years of experience.
+const expirienceYears = new Date().getFullYear() - 2020;
 ---
 
 <SectionContainer id="about-me" class="space-y-10">
@@ -23,11 +26,11 @@ import TechnologyPill from "./TechnologyPill.astro";
 			</p>
 
 			<p>
-				Cuento con experiencia en el <strong
-					>desarrollo de aplicaciones web y móviles</strong
-				>, principalmente con el uso de React y Flutter. Mi pasión por la
-				tecnología, me impulsa a estar en <strong>constante aprendizaje</strong>
-				y a explorar nuevas herramientas y metodologías, con el objetivo de <strong
+				Tengo <strong>{expirienceYears} años de experiencia </strong> en el desarrollo
+				de software, principalmente con el uso de React y Flutter. Mi pasión por
+				la tecnología, me impulsa a estar en <strong
+					>constante aprendizaje</strong
+				> y a explorar nuevas herramientas y metodologías, con el objetivo de <strong
 					>hacer productos que superen las expectativas</strong
 				> y brinden una grata experiencia al usuario. Entre las tecnologías que he
 				trabajado, se encuentran las siguientes:

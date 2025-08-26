@@ -1,6 +1,7 @@
 import type { Experience, Project } from "./types";
 import siecoh from "@/assets/siecoh.webp";
 import iAnimalitos from "@/assets/ianimalitos.webp";
+import theTelecomPost from "@/assets/the-telecom-post.webp";
 import { TECHNOLOGIES, type TechonologyId } from "./technologies";
 
 interface Me {
@@ -78,6 +79,15 @@ export const me: Me = {
 			technologies: ["flutter", "dart"],
 			image: iAnimalitos,
 			codeUrl: "https://github.com/alvaro-jrr/ia-animalitos",
+		},
+		{
+			title: "The Telecom Post",
+			description:
+				"Como proyecto universitario, desarrollé un blog educativo sobre telecomunicaciones. Esta blog contiene información sobre algunos temas relevantes de la materia.",
+			technologies: ["astro", "tailwind", "typescript"],
+			image: theTelecomPost,
+			previewUrl: "https://telecom-blog.vercel.app/",
+			codeUrl: "https://github.com/alvaro-jrr/telecom-blog",
 		},
 	],
 	technologies: Object.keys(TECHNOLOGIES) as TechonologyId[],
