@@ -9,12 +9,10 @@ import SectionTitle from "./SectionTitle.astro";
 	<SectionTitle>Experiencia</SectionTitle>
 
 	<ol>
-		{
-			me.experiences.map((experience) => (
-				<li>
-					<ExpirienceItem experience={experience} />
-				</li>
-			))
-		}
+		{me.experiences.map((experience) => (
+			<li>
+				<ExpirienceItem experience={experience} />
+			</li>
+		))}
 	</ol>
 </SectionContainer>

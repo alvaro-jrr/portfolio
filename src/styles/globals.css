@@ -14,7 +14,7 @@
 
 @layer base {
 	html {
-		@apply bg-background text-paragraph scroll-smooth;
+		@apply scroll-smooth bg-background text-paragraph;
 	}
 
 	h1,
@@ -23,7 +23,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-headline font-mono;
+		@apply font-mono text-headline;
 	}
 
 	strong {

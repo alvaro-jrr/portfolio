@@ -9,12 +9,10 @@ import SectionTitle from "./SectionTitle.astro";
 	<SectionTitle>Proyectos</SectionTitle>
 
 	<ul class="flex flex-col gap-8">
-		{
-			me.projects.map((project) => (
-				<li>
-					<ProjectItem project={project} />
-				</li>
-			))
-		}
+		{me.projects.map((project) => (
+			<li>
+				<ProjectItem project={project} />
+			</li>
+		))}
 	</ul>
 </SectionContainer>

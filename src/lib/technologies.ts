@@ -1,15 +1,15 @@
+import AstroIcon from "@/components/icons/AstroIcon.astro";
+import DartIcon from "@/components/icons/DartIcon.astro";
 import FlutterIcon from "@/components/icons/FlutterIcon.astro";
+import JavaScriptIcon from "@/components/icons/JavaScriptIcon.astro";
+import LaravelIcon from "@/components/icons/LaravelIcon.astro";
 import PhpIcon from "@/components/icons/PhpIcon.astro";
+import PrismaIcon from "@/components/icons/PrismaIcon.astro";
 import ReactIcon from "@/components/icons/ReactIcon.astro";
 import ReactRouterIcon from "@/components/icons/ReactRouterIcon.astro";
 import SWRIcon from "@/components/icons/SwrIcon.astro";
 import TailwindIcon from "@/components/icons/TailwindIcon.astro";
-import AstroIcon from "@/components/icons/AstroIcon.astro";
 import TypeScriptIcon from "@/components/icons/TypeScriptIcon.astro";
-import JavaScriptIcon from "@/components/icons/JavaScriptIcon.astro";
-import LaravelIcon from "@/components/icons/LaravelIcon.astro";
-import DartIcon from "@/components/icons/DartIcon.astro";
-import PrismaIcon from "@/components/icons/PrismaIcon.astro";
 
 /**
  * The technologies tags.

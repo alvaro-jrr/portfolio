@@ -11,7 +11,7 @@ const { class: className = "", id }: Props = Astro.props;
 
 <section
 	id={id}
-	class={cn("container mx-auto py-[20dvh] px-6 lg:max-w-6xl", className)}
+	class={cn("container mx-auto px-6 py-[20dvh] lg:max-w-6xl", className)}
 >
 	<slot />
 </section>

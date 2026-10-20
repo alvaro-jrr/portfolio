@@ -9,14 +9,13 @@ interface Props {
 const { experience }: Props = Astro.props;
 ---
 
-<article
-	class="border-l-paragraph relative grid grid-cols-1 gap-6 border-l-2 p-6 lg:grid-cols-6"
->
-	<span class="text-accent absolute top-2 -left-2 block text-5xl">&bullet;</span
-	>
+<article class="relative grid grid-cols-1 gap-6 border-l-2 border-l-paragraph p-6 lg:grid-cols-6">
+	<span class="absolute top-2 -left-2 block text-5xl text-accent">
+		&bullet;
+	</span>
 
 	<div class="lg:col-span-2">
-		<h3 class="text-accent mb-1 font-medium">{experience.role}</h3>
+		<h3 class="mb-1 font-medium text-accent">{experience.role}</h3>
 
 		<h4 class="mb-2 font-medium">{experience.company}</h4>
 

@@ -19,10 +19,8 @@ const formattedTime = time
 const datetime = time ? `${time.year}-${time.month}` : null;
 ---
 
-{
-	formattedTime ? (
-		<time datetime={datetime}>{formattedTime}</time>
-	) : (
-		<span>Actualmente</span>
-	)
-}
+{formattedTime ? (
+	<time datetime={datetime}>{formattedTime}</time>
+) : (
+	<span>Actualmente</span>
+)}

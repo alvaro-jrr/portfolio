@@ -41,11 +41,9 @@ const websiteUrl = `${me.websiteBaseUrl}${url.startsWith("/") ? url : `/${url}`}
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={websiteUrl} />
 		<meta property="twitter:title" content={title} />
-		{
-			description && (
-				<meta property="twitter:description" content={description} />
-			)
-		}
+		{description && (
+			<meta property="twitter:description" content={description} />
+		)}
 		{image && <meta property="twitter:image" content={image} />}
 	</head>
 	<body>

@@ -1,8 +1,8 @@
-import type { Experience, Project } from "./types";
-import siecoh from "@/assets/siecoh.webp";
 import iAnimalitos from "@/assets/ianimalitos.webp";
+import siecoh from "@/assets/siecoh.webp";
 import theTelecomPost from "@/assets/the-telecom-post.webp";
 import { TECHNOLOGIES, type TechonologyId } from "./technologies";
+import type { Experience, Project } from "./types";
 
 interface Me {
 	email: string;

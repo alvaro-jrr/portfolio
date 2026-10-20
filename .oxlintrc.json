@@ -1,0 +1,14 @@
+{
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"plugins": ["typescript", "unicorn", "oxc", "import", "jsx-a11y"],
+	"categories": {
+		"correctness": "error"
+	},
+	"env": {
+		"builtin": true,
+		"browser": true,
+		"astro": true
+	},
+	"ignorePatterns": ["dist/**", ".astro/**"],
+	"rules": {}
+}
