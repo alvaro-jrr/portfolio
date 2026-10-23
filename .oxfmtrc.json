@@ -12,5 +12,11 @@
 		"functions": ["cn"]
 	},
 	"sortPackageJson": false,
-	"ignorePatterns": ["dist/**", ".astro/**", "pnpm-lock.yaml"]
+	"ignorePatterns": [
+		"dist/**",
+		".astro/**",
+		".agents/**",
+		"pnpm-lock.yaml",
+		"skills-lock.json"
+	]
 }
