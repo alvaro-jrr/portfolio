@@ -1,7 +1,10 @@
 ---
 import { me } from "@/lib/constants";
+import { getYearsOfExperience } from "@/lib/utils";
 import SectionContainer from "./SectionContainer.astro";
 import SectionTitle from "./SectionTitle.astro";
+
+const yearsOfExperience = getYearsOfExperience(me.careerStart);
 ---
 
 <SectionContainer id="about-me">
@@ -10,22 +13,23 @@ import SectionTitle from "./SectionTitle.astro";
 	<div class="grid gap-12 lg:grid-cols-12 lg:gap-8">
 		<div class="space-y-5 text-base leading-relaxed md:text-lg lg:col-span-5">
 			<p>
-				Soy Alvaro Resplandor, desarrollador de software con base en Caracas.
-				Trabajo en productos web y móviles, principalmente con React, TypeScript
-				y Flutter.
+				Soy Alvaro Resplandor, desarrollador de software con más de{" "}
+				{yearsOfExperience} años construyendo y desplegando productos en
+				Venezuela y Latinoamérica. Trabajo en web con React y TypeScript, y en
+				móvil con Flutter.
 			</p>
 
 			<p>
-				Estudio{" "}
-				<strong class="font-medium text-ink">Ingeniería Informática</strong>
-				en la Universidad Nacional Experimental de Guayana y estoy en el último
-				semestre. Me interesa construir interfaces claras, rápidas y bien
-				resueltas, cuidando tanto la experiencia como la implementación.
+				Actualmente en Sportyeah desarrollo módulos de gestión de eventos,
+				escaneo de entradas, torneos y paneles en vivo para encuentros
+				deportivos. Me interesa la arquitectura limpia, los componentes
+				reutilizables y las interfaces claras, rápidas y bien resueltas.
 			</p>
 
 			<p class="text-muted">
-				He trabajado en aplicaciones de chat y citas, herramientas para el
-				registro de datos climatológicos y blogs educativos.
+				Soy bilingüe español/inglés (C2). Antes trabajé en aplicaciones de chat
+				y citas, y en herramientas para el registro y la visualización de datos
+				climatológicos.
 			</p>
 		</div>
 

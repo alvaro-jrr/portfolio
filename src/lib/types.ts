@@ -8,7 +8,9 @@ export interface MonthYear {
 export interface Experience {
 	company: string;
 	role: string;
+	location?: string;
 	description: string;
+	highlights?: string[];
 	stack: string[];
 	time: {
 		start: MonthYear;

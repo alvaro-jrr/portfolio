@@ -1,7 +1,13 @@
 import iAnimalitos from "@/assets/ianimalitos.webp";
 import siecoh from "@/assets/siecoh.webp";
 import theTelecomPost from "@/assets/the-telecom-post.webp";
-import type { Education, Experience, Project, StackGroup } from "./types";
+import type {
+	Education,
+	Experience,
+	MonthYear,
+	Project,
+	StackGroup,
+} from "./types";
 
 interface Me {
 	email: string;
@@ -10,6 +16,7 @@ interface Me {
 	resumeUrl: string;
 	location: string;
 	status: string;
+	careerStart: MonthYear;
 	experiences: Experience[];
 	projects: Project[];
 	stackGroups: StackGroup[];
@@ -26,14 +33,49 @@ export const me: Me = {
 	linkedin: "https://www.linkedin.com/in/alvaro-resplandor/",
 	github: "https://github.com/alvaro-jrr",
 	resumeUrl: "/data/cv_es.pdf",
-	location: "Caracas, Venezuela · GMT-4",
+	location: "Ciudad Guayana, Venezuela · GMT-4",
 	status: "Disponible para conversar",
+	careerStart: {
+		month: 10,
+		year: 2020,
+	},
 	experiences: [
+		{
+			company: "Sportyeah",
+			role: "Flutter Developer",
+			location: "Latinoamérica · Remoto",
+			description:
+				"Módulos para la gestión de eventos deportivos, desde el escaneo de entradas hasta el panel en vivo de cada encuentro.",
+			highlights: [
+				"Diseñé e implementé módulos de gestión de eventos, escaneo de entradas, creación de torneos, panel en vivo para encuentros deportivos y administración de campañas, sponsors y espacios publicitarios.",
+				"Establecí una arquitectura modular y limpia, con un sistema de componentes de interfaz reutilizables y soporte para internacionalización.",
+				"Diseñé una estrategia de datos locales con sincronización en segundo plano, control de acceso basado en roles y permisos, e integración con APIs REST.",
+			],
+			stack: [
+				"Flutter",
+				"Dart",
+				"SQLite",
+				"REST APIs",
+				"Clean Architecture",
+				"i18n",
+			],
+			time: {
+				start: {
+					month: 12,
+					year: 2025,
+				},
+			},
+		},
 		{
 			company: "Nolatech",
 			role: "Flutter Developer",
+			location: "Latinoamérica · Remoto",
 			description:
-				"Desarrollé aplicaciones móviles de chat y citas con Flutter. Construí componentes de UI reutilizables e implementé bases de datos locales, sesiones, roles y permisos, cifrado, APIs REST y sockets.",
+				"Aplicaciones móviles de chat y citas, con una base local confiable y comunicación en tiempo real.",
+			highlights: [
+				"Colaboré en la creación de software empaquetado y componentes de UI reutilizables que aceleraron el desarrollo de nuevos módulos.",
+				"Implementé base de datos local, manejo de sesiones de usuario, roles y permisos, cifrado, integración con APIs REST y uso de sockets.",
+			],
 			stack: [
 				"Flutter",
 				"Firebase",
@@ -57,8 +99,14 @@ export const me: Me = {
 		{
 			company: "Corpoelec",
 			role: "Desarrollador Web",
+			location: "Venezuela · Presencial",
 			description:
-				"Diseñé e implementé APIs con PHP y desarrollé aplicaciones web con React. También creé páginas informativas interactivas.",
+				"Herramientas internas para la recolección y visualización de información climatológica.",
+			highlights: [
+				"Diseñé e implementé APIs con PHP para la captura y consulta de datos climatológicos.",
+				"Desarrollé aplicaciones web con React que mejoraron la interfaz y la experiencia de usuario, agilizando la recolección y visualización de la información.",
+				"Creé páginas informativas interactivas para el equipo y el público.",
+			],
 			stack: ["React", "PHP", "Slim", "Tailwind CSS", "REST APIs"],
 			time: {
 				start: {
@@ -113,6 +161,8 @@ export const me: Me = {
 				"Astro",
 				"TypeScript",
 				"JavaScript",
+				"HTML",
+				"CSS",
 				"Tailwind CSS",
 				"React Router",
 				"SWR",
@@ -147,6 +197,10 @@ export const me: Me = {
 			],
 		},
 		{
+			label: "Metodologías",
+			items: ["SCRUM", "Agile"],
+		},
+		{
 			label: "Idiomas",
 			items: ["Español nativo", "Inglés C2"],
 		},
@@ -154,13 +208,13 @@ export const me: Me = {
 	education: {
 		degree: "Ingeniería Informática",
 		institution: "Universidad Nacional Experimental de Guayana",
-		period: "2020 — actualidad",
-		status: "Último semestre",
+		period: "2020 — 2026",
+		status: "Egresado",
 	},
 	certifications: [
-		"JavaScript Algorithms and Data Structures",
+		"JavaScript Algorithms and Data Structures (2022)",
 		"Responsive Web Design",
-		"EF SET English C2",
+		"EF SET English C2 (2025)",
 	],
 	websiteBaseUrl: "https://alvaro-resplandor.vercel.app",
 };

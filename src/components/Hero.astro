@@ -1,9 +1,12 @@
 ---
 import { FileTextIcon, MailIcon } from "@lucide/astro";
 import { me } from "@/lib/constants";
+import { getYearsOfExperience } from "@/lib/utils";
 import GithubIcon from "./icons/GithubIcon.astro";
 import LinkedInIcon from "./icons/LinkedInIcon.astro";
 import LinkButton from "./LinkButton.astro";
+
+const yearsOfExperience = getYearsOfExperience(me.careerStart);
 
 const facts = [
 	{
@@ -11,12 +14,12 @@ const facts = [
 		value: me.location,
 	},
 	{
-		label: "Enfoque",
-		value: "Frontend + móvil",
+		label: "Experiencia",
+		value: `${yearsOfExperience} años`,
 	},
 	{
 		label: "Inglés",
-		value: "C2 · Profesional",
+		value: "C2 · Bilingüe",
 	},
 	{
 		label: "Formación",
@@ -46,8 +49,8 @@ const facts = [
 			</p>
 
 			<p class="mt-4 max-w-[46ch] text-base text-muted md:text-lg">
-				Construyo interfaces web y aplicaciones móviles con foco en claridad,
-				rendimiento y detalle.
+				Construyo productos web y móviles con React, TypeScript y Flutter, con
+				foco en claridad, rendimiento y detalle.
 			</p>
 		</div>
 

@@ -23,13 +23,26 @@ const { experience }: Props = Astro.props;
 	<div class="md:col-span-4">
 		<h3 class="text-xl font-semibold tracking-[-0.02em]">{experience.role}</h3>
 
-		<p class="mt-1 text-muted">{experience.company}</p>
+		<p class="mt-1 text-muted">
+			{experience.company}
+			{experience.location && ` · ${experience.location}`}
+		</p>
 	</div>
 
 	<div class="md:col-span-6">
-		<p class="max-w-[58ch] text-base text-muted">{experience.description}</p>
+		<p class="max-w-[58ch] text-base">{experience.description}</p>
 
-		<p class="mt-4 font-mono text-xs text-muted">
+		{experience.highlights && (
+			<ul class="mt-4 max-w-[62ch] space-y-2 text-sm text-muted md:text-base">
+				{experience.highlights.map((highlight) => (
+					<li class="relative ps-4 before:absolute before:start-0 before:top-[0.7em] before:h-px before:w-2 before:bg-rule before:content-['']">
+						{highlight}
+					</li>
+				))}
+			</ul>
+		)}
+
+		<p class="mt-5 font-mono text-xs text-muted">
 			{experience.stack.join(", ")}
 		</p>
 	</div>
