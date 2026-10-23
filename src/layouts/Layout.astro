@@ -1,8 +1,9 @@
 ---
+import "@fontsource-variable/sora";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/500.css";
 import { me } from "@/lib/constants";
 import "@/styles/globals.css";
-import "@fontsource-variable/geist";
-import "@fontsource-variable/geist-mono";
 
 interface Props {
 	title: string;
@@ -13,18 +14,44 @@ interface Props {
 
 const { title, description, image, url = "/" } = Astro.props;
 
-// Prepapre the url to be used in the meta tags.
+// Prepare the url to be used in the meta tags.
 const websiteUrl = `${me.websiteBaseUrl}${url.startsWith("/") ? url : `/${url}`}`;
 ---
 
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
+		<script is:inline>
+			(() => {
+				try {
+					const stored = localStorage.getItem("theme");
+					const theme =
+						stored === "light" || stored === "dark"
+							? stored
+							: window.matchMedia("(prefers-color-scheme: dark)").matches
+								? "dark"
+								: "light";
+					document.documentElement.dataset.theme = theme;
+				} catch {
+					document.documentElement.dataset.theme = "light";
+				}
+			})();
+		</script>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="canonical" href={websiteUrl} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: light)"
+			content="#f3efe6"
+		/>
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: dark)"
+			content="#161513"
+		/>
 
 		<!-- Primary Meta Tags -->
 		<title>{title}</title>
@@ -46,7 +73,13 @@ const websiteUrl = `${me.websiteBaseUrl}${url.startsWith("/") ? url : `/${url}`}
 		)}
 		{image && <meta property="twitter:image" content={image} />}
 	</head>
-	<body>
+	<body class="min-h-dvh bg-paper text-ink">
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-xs focus:bg-accent focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:text-accent-ink"
+		>
+			Saltar al contenido
+		</a>
 		<slot />
 	</body>
 </html>

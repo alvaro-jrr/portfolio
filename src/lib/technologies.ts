@@ -17,66 +17,52 @@ import TypeScriptIcon from "@/components/icons/TypeScriptIcon.astro";
 export const TECHNOLOGIES = {
 	react: {
 		label: "React",
-		backgroundColor: "#006591",
 		icon: ReactIcon,
 	},
 	php: {
 		label: "PHP",
-		backgroundColor: "#4E5B93",
 		icon: PhpIcon,
 	},
 	tailwind: {
 		label: "Tailwind CSS",
-		backgroundColor: "#006591",
 		icon: TailwindIcon,
 	},
 	dart: {
 		label: "Dart",
-		backgroundColor: "#042448",
 		icon: DartIcon,
 	},
 	flutter: {
 		label: "Flutter",
-		backgroundColor: "#042448",
 		icon: FlutterIcon,
 	},
 	reactRouter: {
 		label: "React Router",
-		backgroundColor: "#121212",
 		icon: ReactRouterIcon,
 	},
 	swr: {
 		label: "SWR",
-		backgroundColor: "#121212",
 		icon: SWRIcon,
 	},
 	astro: {
 		label: "Astro",
-		backgroundColor: "#000",
 		icon: AstroIcon,
 	},
 	typescript: {
 		label: "TypeScript",
-		backgroundColor: "#007ACC",
 		icon: TypeScriptIcon,
 	},
 	javascript: {
 		label: "JavaScript",
-		backgroundColor: "oklch(47.6% 0.114 61.907)",
 		icon: JavaScriptIcon,
 	},
 	laravel: {
 		label: "Laravel",
-		backgroundColor: "#111110",
 		icon: LaravelIcon,
 	},
 	prisma: {
 		label: "Prisma",
-		backgroundColor: "#1C2044",
 		icon: PrismaIcon,
 	},
 };
 
-export type TechonologyId = keyof typeof TECHNOLOGIES;
-
-export type Techonology = (typeof TECHNOLOGIES)[TechonologyId];
+export type TechnologyId = keyof typeof TECHNOLOGIES;

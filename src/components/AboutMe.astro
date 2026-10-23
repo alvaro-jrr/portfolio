@@ -2,58 +2,66 @@
 import { me } from "@/lib/constants";
 import SectionContainer from "./SectionContainer.astro";
 import SectionTitle from "./SectionTitle.astro";
-import TechnologyPill from "./TechnologyPill.astro";
-
-// Calculate the number of years of experience.
-const expirienceYears = new Date().getFullYear() - 2020;
 ---
 
-<SectionContainer id="about-me" class="space-y-10">
-	<SectionTitle>Sobre Mi</SectionTitle>
+<SectionContainer id="about-me">
+	<SectionTitle meta="Perfil">Sobre mí</SectionTitle>
 
-	<div class="grid grid-cols-1 lg:grid-cols-6">
-		<div class="space-y-4 lg:col-span-4">
+	<div class="grid gap-12 lg:grid-cols-12 lg:gap-8">
+		<div class="space-y-5 text-base leading-relaxed md:text-lg lg:col-span-5">
 			<p>
-				Mi nombre es Alvaro Resplandor, estudio{" "}
-				<strong>Ingeniería Informática</strong> en la{" "}
-				<a
-					href="https://www.uneg.edu.ve/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Universidad Nacional Experimental de Guayana
-				</a>{" "}
-				y actualmente estoy desarrollando mi trabajo de grado para la obtención
-				del titulo.
+				Soy Alvaro Resplandor, desarrollador de software con base en Caracas.
+				Trabajo en productos web y móviles, principalmente con React, TypeScript
+				y Flutter.
 			</p>
 
 			<p>
-				Tengo <strong>{expirienceYears} años de experiencia </strong> en el
-				desarrollo de software, principalmente con el uso de React y Flutter. Mi
-				pasión por la tecnología, me impulsa a estar en{" "}
-				<strong>constante aprendizaje</strong> y a explorar nuevas herramientas
-				y metodologías, con el objetivo de{" "}
-				<strong>hacer productos que superen las expectativas</strong> y brinden
-				una grata experiencia al usuario. Entre las tecnologías que he
-				trabajado, se encuentran las siguientes:
+				Estudio{" "}
+				<strong class="font-medium text-ink">Ingeniería Informática</strong>
+				en la Universidad Nacional Experimental de Guayana y estoy en el último
+				semestre. Me interesa construir interfaces claras, rápidas y bien
+				resueltas, cuidando tanto la experiencia como la implementación.
+			</p>
+
+			<p class="text-muted">
+				He trabajado en aplicaciones de chat y citas, herramientas para el
+				registro de datos climatológicos y blogs educativos.
 			</p>
 		</div>
+
+		<div class="lg:col-span-7">
+			<dl class="border-t border-rule">
+				{me.stackGroups.map((group) => (
+					<div class="grid gap-1 border-b border-rule py-4 sm:grid-cols-[8rem_1fr] sm:gap-4">
+						<dt class="font-mono text-xs text-muted">{group.label}</dt>
+						<dd class="text-sm">{group.items.join(", ")}</dd>
+					</div>
+				))}
+			</dl>
+
+			<div class="mt-10 grid gap-8 border-t border-rule pt-8 sm:grid-cols-2">
+				<div>
+					<h3 class="font-mono text-xs text-muted">Formación</h3>
+
+					<p class="mt-3 font-medium">{me.education.degree}</p>
+
+					<p class="mt-1 text-sm text-muted">{me.education.institution}</p>
+
+					<p class="mt-2 font-mono text-xs text-muted">
+						{me.education.period} · {me.education.status}
+					</p>
+				</div>
+
+				<div>
+					<h3 class="font-mono text-xs text-muted">Certificaciones</h3>
+
+					<ul class="mt-3 space-y-2 text-sm">
+						{me.certifications.map((certification) => (
+							<li>{certification}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<ul class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-		{me.technologies.map((technology) => (
-			<li>
-				<TechnologyPill
-					class="gap-4 rounded-md px-6 py-4 text-base"
-					technology={technology}
-				/>
-			</li>
-		))}
-	</ul>
 </SectionContainer>
-
-<style>
-	strong {
-		font-weight: 400;
-	}
-</style>

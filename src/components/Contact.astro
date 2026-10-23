@@ -1,0 +1,98 @@
+---
+import { CopyIcon, FileTextIcon } from "@lucide/astro";
+import { me } from "@/lib/constants";
+import LinkButton from "./LinkButton.astro";
+---
+
+<section id="contact" class="container-page scroll-mt-24 py-20 md:py-28">
+	<div class="border-t border-rule pt-4">
+		<p class="mono-label">Contacto</p>
+
+		<h2 class="mt-6 text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] font-semibold tracking-[-0.045em]">
+			Hablemos.
+		</h2>
+
+		<p class="mt-4 max-w-[48ch] text-muted md:text-lg">
+			¿Tienes un proyecto o una vacante? Escríbeme y te respondo.
+		</p>
+
+		<div class="mt-8 flex flex-col gap-5">
+			<a
+				href={`mailto:${me.email}`}
+				class="link-underline w-fit text-xl font-medium tracking-[-0.02em] md:text-3xl"
+			>
+				{me.email}
+			</a>
+
+			<div class="flex flex-wrap items-center gap-3">
+				<button
+					type="button"
+					data-copy-email
+					data-email={me.email}
+					class="pressable inline-flex items-center gap-2 rounded-xs border border-rule px-4 py-2.5 font-mono text-xs font-medium text-muted hover:border-ink hover:text-ink"
+				>
+					<CopyIcon class="size-3.5" aria-hidden="true" />
+					<span data-copy-label aria-live="polite">
+						Copiar correo
+					</span>
+				</button>
+
+				<LinkButton
+					href={me.resumeUrl}
+					download="Alvaro Resplandor - CV"
+					variant="outline"
+				>
+					<FileTextIcon class="size-3.5" aria-hidden="true" />
+					Descargar CV
+				</LinkButton>
+
+				<LinkButton
+					href={me.linkedin}
+					target="_blank"
+					rel="noopener noreferrer"
+					variant="ghost"
+				>
+					LinkedIn
+				</LinkButton>
+
+				<LinkButton
+					href={me.github}
+					target="_blank"
+					rel="noopener noreferrer"
+					variant="ghost"
+				>
+					GitHub
+				</LinkButton>
+			</div>
+		</div>
+
+		<p class="mt-10 font-mono text-xs text-muted">{me.location}</p>
+	</div>
+</section>
+
+<script>
+	const button = document.querySelector<HTMLButtonElement>("[data-copy-email]");
+	const label = button?.querySelector<HTMLElement>("[data-copy-label]");
+
+	button?.addEventListener("click", async () => {
+		const email = button.dataset.email;
+		const original = label?.textContent ?? "Copiar correo";
+
+		if (!email) {
+			return;
+		}
+
+		try {
+			await navigator.clipboard.writeText(email);
+
+			if (label) {
+				label.textContent = "Copiado";
+				window.setTimeout(() => {
+					label.textContent = original;
+				}, 2000);
+			}
+		} catch {
+			window.location.href = `mailto:${email}`;
+		}
+	});
+</script>

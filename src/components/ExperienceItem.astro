@@ -1,0 +1,36 @@
+---
+import type { Experience } from "@/lib/types";
+import ExperienceTime from "./ExperienceTime.astro";
+
+interface Props {
+	experience: Experience;
+}
+
+const { experience }: Props = Astro.props;
+---
+
+<article class="grid gap-4 py-8 md:grid-cols-12 md:gap-6 md:py-10">
+	<p class="font-mono text-xs text-muted md:col-span-2">
+		<ExperienceTime time={experience.time.start} />
+		<span aria-hidden="true"> — </span>
+		{experience.time.end ? (
+			<ExperienceTime time={experience.time.end} />
+		) : (
+			"Actualidad"
+		)}
+	</p>
+
+	<div class="md:col-span-4">
+		<h3 class="text-xl font-semibold tracking-[-0.02em]">{experience.role}</h3>
+
+		<p class="mt-1 text-muted">{experience.company}</p>
+	</div>
+
+	<div class="md:col-span-6">
+		<p class="max-w-[58ch] text-base text-muted">{experience.description}</p>
+
+		<p class="mt-4 font-mono text-xs text-muted">
+			{experience.stack.join(", ")}
+		</p>
+	</div>
+</article>

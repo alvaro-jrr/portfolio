@@ -5,14 +5,114 @@ import SectionContainer from "./SectionContainer.astro";
 import SectionTitle from "./SectionTitle.astro";
 ---
 
-<SectionContainer id="projects" class="space-y-10">
-	<SectionTitle>Proyectos</SectionTitle>
+<SectionContainer id="work">
+	<SectionTitle meta={`${me.projects.length} proyectos`}>
+		Trabajo seleccionado
+	</SectionTitle>
 
-	<ul class="flex flex-col gap-8">
+	<ul class="border-y border-rule">
 		{me.projects.map((project) => (
-			<li>
+			<li class="border-b border-rule last:border-b-0">
 				<ProjectItem project={project} />
 			</li>
 		))}
 	</ul>
+
+	<div class="project-preview" data-project-preview-layer aria-hidden="true">
+		<div class="project-preview-inner">
+			<img data-project-preview-image alt="" />
+		</div>
+	</div>
 </SectionContainer>
+
+<script>
+	const layer = document.querySelector<HTMLElement>(
+		"[data-project-preview-layer]",
+	);
+	const image = layer?.querySelector<HTMLImageElement>(
+		"[data-project-preview-image]",
+	);
+	const rows = document.querySelectorAll<HTMLElement>("[data-project-row]");
+	const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+	if (layer && image && finePointer.matches && !reduceMotion.matches) {
+		let targetX = 0;
+		let targetY = 0;
+		let currentX = 0;
+		let currentY = 0;
+		let frame = 0;
+
+		const clampPosition = (event) => {
+			const width = layer.offsetWidth;
+			const height = layer.offsetHeight;
+			const offset = 24;
+
+			targetX = event.clientX + offset;
+			targetY = event.clientY + offset;
+
+			if (targetX + width > window.innerWidth - offset) {
+				targetX = event.clientX - width - offset;
+			}
+
+			if (targetY + height > window.innerHeight - offset) {
+				targetY = event.clientY - height - offset;
+			}
+		};
+
+		const render = () => {
+			currentX += (targetX - currentX) * 0.18;
+			currentY += (targetY - currentY) * 0.18;
+
+			layer.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+			if (
+				Math.abs(targetX - currentX) > 0.1 ||
+				Math.abs(targetY - currentY) > 0.1
+			) {
+				frame = requestAnimationFrame(render);
+			} else {
+				frame = 0;
+			}
+		};
+
+		const move = (event) => {
+			clampPosition(event);
+
+			if (!frame) {
+				frame = requestAnimationFrame(render);
+			}
+		};
+
+		rows.forEach((row) => {
+			const thumbnail = row.querySelector("img");
+
+			row.addEventListener("pointerenter", (event) => {
+				const source = thumbnail?.currentSrc || thumbnail?.src;
+
+				if (source) {
+					image.src = source;
+				}
+
+				layer.dataset.visible = "true";
+				currentX = targetX = event.clientX + 24;
+				currentY = targetY = event.clientY + 24;
+				layer.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+				if (!frame) {
+					frame = requestAnimationFrame(render);
+				}
+			});
+
+			row.addEventListener("pointermove", move);
+
+			row.addEventListener("pointerleave", () => {
+				layer.dataset.visible = "false";
+			});
+		});
+
+		document.addEventListener("pointerleave", () => {
+			layer.dataset.visible = "false";
+		});
+	}
+</script>
