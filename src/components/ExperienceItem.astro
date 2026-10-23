@@ -7,43 +7,70 @@ interface Props {
 }
 
 const { experience }: Props = Astro.props;
+const isCurrent = !experience.time.end;
 ---
 
-<article class="grid gap-4 py-8 md:grid-cols-12 md:gap-6 md:py-10">
-	<p class="font-mono text-xs text-muted md:col-span-2">
-		<ExperienceTime time={experience.time.start} />
-		<span aria-hidden="true"> — </span>
-		{experience.time.end ? (
-			<ExperienceTime time={experience.time.end} />
-		) : (
-			"Actualidad"
-		)}
-	</p>
+<article class="grid gap-6 py-10 md:grid-cols-12 md:gap-x-8 md:gap-y-5 md:py-12">
+	<header class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 md:col-span-12">
+		<h3 class="text-2xl font-semibold tracking-[-0.025em]">
+			{experience.role}
+		</h3>
 
-	<div class="md:col-span-4">
-		<h3 class="text-xl font-semibold tracking-[-0.02em]">{experience.role}</h3>
-
-		<p class="mt-1 text-muted">
-			{experience.company}
-			{experience.location && ` · ${experience.location}`}
+		<p class="font-mono text-xs text-muted">
+			<ExperienceTime time={experience.time.start} />
+			<span aria-hidden="true"> — </span>
+			{experience.time.end ? (
+				<ExperienceTime time={experience.time.end} />
+			) : (
+				<span class="inline-flex items-center gap-1.5">
+					<span
+						class="size-1.5 rounded-full bg-accent"
+						aria-hidden="true"
+					></span>
+					Actualidad
+				</span>
+			)}
 		</p>
-	</div>
+	</header>
 
-	<div class="md:col-span-6">
-		<p class="max-w-[58ch] text-base">{experience.description}</p>
+	<div class="md:col-span-8">
+		<p class="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm">
+			<span class="font-medium">{experience.company}</span>
+
+			{experience.location && (
+				<>
+					<span class="text-muted" aria-hidden="true">
+						·
+					</span>
+					<span class="text-muted">{experience.location}</span>
+				</>
+			)}
+		</p>
+
+		<p class="mt-4 max-w-[60ch] text-base leading-relaxed">
+			{experience.description}
+		</p>
 
 		{experience.highlights && (
-			<ul class="mt-4 max-w-[62ch] space-y-2 text-sm text-muted md:text-base">
+			<ul class="mt-4 max-w-[62ch] space-y-2.5">
 				{experience.highlights.map((highlight) => (
-					<li class="relative ps-4 before:absolute before:start-0 before:top-[0.7em] before:h-px before:w-2 before:bg-rule before:content-['']">
+					<li class="relative ps-4 text-sm leading-relaxed text-muted before:absolute before:start-0 before:top-[0.65em] before:h-px before:w-2 before:bg-rule before:content-[''] md:text-base">
 						{highlight}
 					</li>
 				))}
 			</ul>
 		)}
-
-		<p class="mt-5 font-mono text-xs text-muted">
-			{experience.stack.join(", ")}
-		</p>
 	</div>
+
+	<aside class="md:col-span-4">
+		<h4 class="font-mono text-xs text-muted">Stack</h4>
+
+		<ul class="mt-3 flex flex-wrap gap-1.5">
+			{experience.stack.map((technology) => (
+				<li class="border border-rule px-2 py-1 font-mono text-[11px] leading-none text-muted">
+					{technology}
+				</li>
+			))}
+		</ul>
+	</aside>
 </article>

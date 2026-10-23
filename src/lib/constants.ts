@@ -15,6 +15,7 @@ interface Me {
 	github: string;
 	resumeUrl: string;
 	location: string;
+	timezone: string;
 	status: string;
 	careerStart: MonthYear;
 	experiences: Experience[];
@@ -33,7 +34,8 @@ export const me: Me = {
 	linkedin: "https://www.linkedin.com/in/alvaro-resplandor/",
 	github: "https://github.com/alvaro-jrr",
 	resumeUrl: "/data/cv_es.pdf",
-	location: "Ciudad Guayana, Venezuela · GMT-4",
+	location: "Ciudad Guayana, Venezuela",
+	timezone: "GMT-4",
 	status: "Disponible para conversar",
 	careerStart: {
 		month: 10,
@@ -43,13 +45,13 @@ export const me: Me = {
 		{
 			company: "Sportyeah",
 			role: "Flutter Developer",
-			location: "Latinoamérica · Remoto",
+			location: "Latinoamérica, remoto",
 			description:
-				"Módulos para la gestión de eventos deportivos, desde el escaneo de entradas hasta el panel en vivo de cada encuentro.",
+				"Desarrollo el producto móvil de una plataforma de gestión de eventos deportivos, del escaneo de entradas al panel en vivo.",
 			highlights: [
-				"Diseñé e implementé módulos de gestión de eventos, escaneo de entradas, creación de torneos, panel en vivo para encuentros deportivos y administración de campañas, sponsors y espacios publicitarios.",
-				"Establecí una arquitectura modular y limpia, con un sistema de componentes de interfaz reutilizables y soporte para internacionalización.",
-				"Diseñé una estrategia de datos locales con sincronización en segundo plano, control de acceso basado en roles y permisos, e integración con APIs REST.",
+				"Diseñé los módulos de eventos, escaneo de entradas, torneos, panel en vivo y administración de campañas, sponsors y publicidad.",
+				"Establecí una arquitectura modular con componentes de UI reutilizables e internacionalización.",
+				"Implementé una capa local con sincronización en segundo plano, permisos por rol e integración con APIs REST.",
 			],
 			stack: [
 				"Flutter",
@@ -69,12 +71,12 @@ export const me: Me = {
 		{
 			company: "Nolatech",
 			role: "Flutter Developer",
-			location: "Latinoamérica · Remoto",
+			location: "Latinoamérica, remoto",
 			description:
-				"Aplicaciones móviles de chat y citas, con una base local confiable y comunicación en tiempo real.",
+				"Aplicaciones móviles de chat y citas, con base local y comunicación en tiempo real.",
 			highlights: [
-				"Colaboré en la creación de software empaquetado y componentes de UI reutilizables que aceleraron el desarrollo de nuevos módulos.",
-				"Implementé base de datos local, manejo de sesiones de usuario, roles y permisos, cifrado, integración con APIs REST y uso de sockets.",
+				"Construí software empaquetado y componentes de UI reutilizables que aceleraron el desarrollo de nuevos módulos.",
+				"Implementé base de datos local, sesiones, roles y permisos, cifrado, APIs REST y sockets.",
 			],
 			stack: [
 				"Flutter",
@@ -99,12 +101,12 @@ export const me: Me = {
 		{
 			company: "Corpoelec",
 			role: "Desarrollador Web",
-			location: "Venezuela · Presencial",
+			location: "Venezuela, presencial",
 			description:
-				"Herramientas internas para la recolección y visualización de información climatológica.",
+				"Herramientas internas para recolectar y visualizar información climatológica.",
 			highlights: [
-				"Diseñé e implementé APIs con PHP para la captura y consulta de datos climatológicos.",
-				"Desarrollé aplicaciones web con React que mejoraron la interfaz y la experiencia de usuario, agilizando la recolección y visualización de la información.",
+				"Diseñé APIs en PHP para la captura y consulta de datos climatológicos.",
+				"Desarrollé la interfaz en React que agilizó la recolección y visualización de registros.",
 				"Creé páginas informativas interactivas para el equipo y el público.",
 			],
 			stack: ["React", "PHP", "Slim", "Tailwind CSS", "REST APIs"],
