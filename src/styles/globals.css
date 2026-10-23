@@ -10,7 +10,7 @@
 	--color-accent-ink: var(--accent-ink);
 	--color-accent-soft: var(--accent-soft);
 	--font-sans: "Sora Variable", ui-sans-serif, system-ui, sans-serif;
-	--font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+	--font-mono: "Martian Mono Variable", ui-monospace, SFMono-Regular, monospace;
 	--radius-xs: 2px;
 	--radius-sm: 4px;
 }
@@ -76,6 +76,7 @@ body {
 h1,
 h2,
 h3 {
+	font-family: var(--font-mono);
 	text-wrap: balance;
 }
 
