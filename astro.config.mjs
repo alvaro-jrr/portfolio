@@ -1,16 +1,15 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
-
+import tailwindcss from "@tailwindcss/vite";
 import robotsTxt from "astro-robots-txt";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://alvaro-resplandor.vercel.app",
-    vite: {
-        plugins: [tailwindcss()],
-    },
-    integrations: [sitemap(), robotsTxt()],
+	site: "https://alvaro-resplandor.vercel.app",
+	vite: {
+		plugins: [tailwindcss()],
+	},
+	integrations: [sitemap(), robotsTxt()],
 });

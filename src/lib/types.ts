@@ -1,4 +1,4 @@
-import type { TechonologyId } from "./technologies";
+import type { TechnologyId } from "./technologies";
 
 export interface MonthYear {
 	month: number;
@@ -8,7 +8,10 @@ export interface MonthYear {
 export interface Experience {
 	company: string;
 	role: string;
+	location?: string;
 	description: string;
+	highlights?: string[];
+	stack: string[];
 	time: {
 		start: MonthYear;
 		end?: MonthYear;
@@ -18,9 +21,21 @@ export interface Experience {
 export interface Project {
 	title: string;
 	description: string;
-	technologies: TechonologyId[];
+	technologies: TechnologyId[];
 	inReview?: boolean;
 	image: ImageMetadata;
 	previewUrl?: string;
 	codeUrl?: string;
+}
+
+export interface StackGroup {
+	label: string;
+	items: string[];
+}
+
+export interface Education {
+	degree: string;
+	institution: string;
+	period: string;
+	status: string;
 }

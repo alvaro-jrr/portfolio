@@ -1,0 +1,19 @@
+---
+import type { MonthYear } from "@/lib/types";
+
+interface Props {
+	time: MonthYear;
+}
+
+const { time }: Props = Astro.props;
+
+const formatter = new Intl.DateTimeFormat("es-VE", {
+	month: "short",
+	year: "numeric",
+});
+
+const formattedTime = formatter.format(new Date(time.year, time.month - 1));
+const datetime = `${time.year}-${String(time.month).padStart(2, "0")}`;
+---
+
+<time datetime={datetime}>{formattedTime}</time>

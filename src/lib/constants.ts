@@ -1,17 +1,28 @@
-import type { Experience, Project } from "./types";
-import siecoh from "@/assets/siecoh.webp";
 import iAnimalitos from "@/assets/ianimalitos.webp";
+import siecoh from "@/assets/siecoh.webp";
 import theTelecomPost from "@/assets/the-telecom-post.webp";
-import { TECHNOLOGIES, type TechonologyId } from "./technologies";
+import type {
+	Education,
+	Experience,
+	MonthYear,
+	Project,
+	StackGroup,
+} from "./types";
 
 interface Me {
 	email: string;
 	linkedin: string;
 	github: string;
 	resumeUrl: string;
+	location: string;
+	timezone: string;
+	status: string;
+	careerStart: MonthYear;
 	experiences: Experience[];
 	projects: Project[];
-	technologies: TechonologyId[];
+	stackGroups: StackGroup[];
+	education: Education;
+	certifications: string[];
 	websiteBaseUrl: string;
 }
 
@@ -23,12 +34,59 @@ export const me: Me = {
 	linkedin: "https://www.linkedin.com/in/alvaro-resplandor/",
 	github: "https://github.com/alvaro-jrr",
 	resumeUrl: "/data/cv_es.pdf",
+	location: "Ciudad Guayana, Venezuela",
+	timezone: "GMT-4",
+	status: "Disponible para conversar",
+	careerStart: {
+		month: 10,
+		year: 2020,
+	},
 	experiences: [
+		{
+			company: "Sportyeah",
+			role: "Flutter Developer",
+			location: "Latinoamérica, remoto",
+			description:
+				"Desarrollo el producto móvil de una plataforma de gestión de eventos deportivos, del escaneo de entradas al panel en vivo.",
+			highlights: [
+				"Diseñé los módulos de eventos, escaneo de entradas, torneos, panel en vivo y administración de campañas, sponsors y publicidad.",
+				"Establecí una arquitectura modular con componentes de UI reutilizables e internacionalización.",
+				"Implementé una capa local con sincronización en segundo plano, permisos por rol e integración con APIs REST.",
+			],
+			stack: [
+				"Flutter",
+				"Dart",
+				"SQLite",
+				"REST APIs",
+				"Clean Architecture",
+				"i18n",
+			],
+			time: {
+				start: {
+					month: 12,
+					year: 2025,
+				},
+			},
+		},
 		{
 			company: "Nolatech",
 			role: "Flutter Developer",
+			location: "Latinoamérica, remoto",
 			description:
-				"Desarrollé aplicaciones móviles de chat y citas con Flutter. Colaboré en la creación de software y componentes de UI reutilizables para agilizar el desarrollo. Me encargué de la implementación de bases de datos locales, manejo de sesiones, encriptación e integración de APIs REST.",
+				"Aplicaciones móviles de chat y citas, con base local y comunicación en tiempo real.",
+			highlights: [
+				"Construí software empaquetado y componentes de UI reutilizables que aceleraron el desarrollo de nuevos módulos.",
+				"Implementé base de datos local, sesiones, roles y permisos, cifrado, APIs REST y sockets.",
+			],
+			stack: [
+				"Flutter",
+				"Firebase",
+				"Supabase",
+				"Provider",
+				"Socket.io",
+				"REST APIs",
+				"SQLite",
+			],
 			time: {
 				start: {
 					month: 2,
@@ -42,9 +100,16 @@ export const me: Me = {
 		},
 		{
 			company: "Corpoelec",
-			role: "Desarollador Web",
+			role: "Desarrollador Web",
+			location: "Venezuela, presencial",
 			description:
-				"En esta posición, me enfoqué en el diseño e implementación de APIs usando PHP y desarrollé aplicaciones web con React para mejorar la interfaz y experiencia del usuario. Además, creé páginas informativas interactivas.",
+				"Herramientas internas para recolectar y visualizar información climatológica.",
+			highlights: [
+				"Diseñé APIs en PHP para la captura y consulta de datos climatológicos.",
+				"Desarrollé la interfaz en React que agilizó la recolección y visualización de registros.",
+				"Creé páginas informativas interactivas para el equipo y el público.",
+			],
+			stack: ["React", "PHP", "Slim", "Tailwind CSS", "REST APIs"],
 			time: {
 				start: {
 					month: 10,
@@ -61,7 +126,7 @@ export const me: Me = {
 		{
 			title: "SIECOH",
 			description:
-				"Desarrollé una aplicación web robusta para que los trabajadores registren y accedan a datos climatológicos. Con SIECOH, pueden gestionar registros históricos de diversas estaciones e ingresar nuevos datos de manera eficiente. Esta herramienta simplifica el manejo de información climática, asegurando un registro preciso y accesible.",
+				"Aplicación web para registrar y consultar datos climatológicos de distintas estaciones, con históricos y carga de nuevos registros.",
 			technologies: [
 				"react",
 				"tailwind",
@@ -75,7 +140,7 @@ export const me: Me = {
 		{
 			title: "iAnimalitos",
 			description:
-				"Desarrollé una aplicación móvil para acceder a los resultados del sorteo de animalitos de Venezuela y el análisis de las probabilidades de aparición de los animalitos para cada una de las casas de loterías.",
+				"Aplicación móvil para consultar los resultados del sorteo de animalitos de Venezuela y analizar las probabilidades de aparición por casa de lotería.",
 			technologies: ["flutter", "dart"],
 			image: iAnimalitos,
 			codeUrl: "https://github.com/alvaro-jrr/ia-animalitos",
@@ -83,13 +148,75 @@ export const me: Me = {
 		{
 			title: "The Telecom Post",
 			description:
-				"Como proyecto universitario, desarrollé un blog educativo sobre telecomunicaciones. Esta blog contiene información sobre algunos temas relevantes de la materia.",
+				"Blog educativo sobre telecomunicaciones con artículos temáticos, construido con Astro y Tailwind CSS.",
 			technologies: ["astro", "tailwind", "typescript"],
 			image: theTelecomPost,
 			previewUrl: "https://telecom-blog.vercel.app/",
 			codeUrl: "https://github.com/alvaro-jrr/telecom-blog",
 		},
 	],
-	technologies: Object.keys(TECHNOLOGIES) as TechonologyId[],
+	stackGroups: [
+		{
+			label: "Frontend",
+			items: [
+				"React",
+				"Astro",
+				"TypeScript",
+				"JavaScript",
+				"HTML",
+				"CSS",
+				"Tailwind CSS",
+				"React Router",
+				"SWR",
+			],
+		},
+		{
+			label: "Móvil",
+			items: [
+				"Flutter",
+				"Dart",
+				"Firebase",
+				"Supabase",
+				"SQLite",
+				"Provider",
+				"Socket.io",
+			],
+		},
+		{
+			label: "Backend",
+			items: ["PHP", "Laravel", "Slim", "Prisma", "MySQL"],
+		},
+		{
+			label: "Herramientas",
+			items: [
+				"Git",
+				"GitHub",
+				"Postman",
+				"Figma",
+				"Adobe XD",
+				"Zeplin",
+				"Trello",
+			],
+		},
+		{
+			label: "Metodologías",
+			items: ["SCRUM", "Agile"],
+		},
+		{
+			label: "Idiomas",
+			items: ["Español nativo", "Inglés C2"],
+		},
+	],
+	education: {
+		degree: "Ingeniería Informática",
+		institution: "Universidad Nacional Experimental de Guayana",
+		period: "2020 — 2026",
+		status: "Egresado",
+	},
+	certifications: [
+		"JavaScript Algorithms and Data Structures (2022)",
+		"Responsive Web Design",
+		"EF SET English C2 (2025)",
+	],
 	websiteBaseUrl: "https://alvaro-resplandor.vercel.app",
 };

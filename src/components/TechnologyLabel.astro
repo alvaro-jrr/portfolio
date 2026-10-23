@@ -1,9 +1,9 @@
 ---
-import { TECHNOLOGIES, type TechonologyId } from "@/lib/technologies";
+import { TECHNOLOGIES, type TechnologyId } from "@/lib/technologies";
 import { cn } from "@/lib/utils";
 
 interface Props {
-	technology: TechonologyId;
+	technology: TechnologyId;
 	class?: string;
 }
 
@@ -14,15 +14,12 @@ const Icon = technology.icon;
 ---
 
 <div
-	style={{
-		backgroundColor: technology.backgroundColor,
-	}}
 	class={cn(
-		"flex flex-shrink-0 items-center gap-2 rounded-full px-3 py-1 text-sm font-medium text-white",
+		"inline-flex items-center gap-1.5 font-mono text-xs text-muted",
 		className,
 	)}
 >
-	{Icon ? <Icon class="size-4" /> : null}
+	{Icon ? <Icon class="size-3.5" aria-hidden="true" /> : null}
 
 	<span>{technology.label}</span>
 </div>

@@ -1,28 +1,35 @@
 ---
 import AboutMe from "@/components/AboutMe.astro";
-import Expirience from "@/components/Expirience.astro";
+import Contact from "@/components/Contact.astro";
+import Experience from "@/components/Experience.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
 import Projects from "@/components/Projects.astro";
 import Layout from "@/layouts/Layout.astro";
+import { me } from "@/lib/constants";
+import { getYearsOfExperience } from "@/lib/utils";
+
+const yearsOfExperience = getYearsOfExperience(me.careerStart);
 ---
 
 <Layout
-	title="Alvaro Resplandor"
-	description="Contrata a Álvaro Resplandor, un desarrollador especializado en la creación de aplicaciones web y móviles. Transforma tus ideas en soluciones de software limpias y eficientes."
+	title="Alvaro Resplandor — Desarrollador de software"
+	description={`Desarrollador de software con más de ${yearsOfExperience} años de experiencia en web y móvil. Construyo interfaces con React, TypeScript y Flutter desde Venezuela, en remoto.`}
 	image="/landing.webp"
 >
 	<Header />
 
-	<main>
+	<main id="main">
 		<Hero />
 
-		<Expirience />
+		<AboutMe />
+
+		<Experience />
 
 		<Projects />
 
-		<AboutMe />
+		<Contact />
 	</main>
 
 	<Footer />

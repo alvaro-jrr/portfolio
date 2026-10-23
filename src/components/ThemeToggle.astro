@@ -1,0 +1,43 @@
+---
+import { MoonIcon, SunIcon } from "@lucide/astro";
+---
+
+<button
+	id="theme-toggle"
+	type="button"
+	class="pressable grid size-9 place-items-center rounded-xs border border-rule text-muted hover:border-ink hover:text-ink"
+	aria-label="Cambiar tema"
+	title="Cambiar tema"
+>
+	<SunIcon class="theme-icon-light size-4" aria-hidden="true" />
+	<MoonIcon class="theme-icon-dark size-4" aria-hidden="true" />
+</button>
+
+<script>
+	const button = document.getElementById("theme-toggle");
+	const root = document.documentElement;
+
+	const updateLabel = () => {
+		const isDark = root.dataset.theme === "dark";
+		const label = isDark ? "Cambiar a tema claro" : "Cambiar a tema oscuro";
+
+		button?.setAttribute("aria-label", label);
+		button?.setAttribute("title", label);
+	};
+
+	updateLabel();
+
+	button?.addEventListener("click", () => {
+		const next = root.dataset.theme === "dark" ? "light" : "dark";
+
+		root.dataset.theme = next;
+
+		try {
+			localStorage.setItem("theme", next);
+		} catch {
+			// Storage can be unavailable in private contexts.
+		}
+
+		updateLabel();
+	});
+</script>

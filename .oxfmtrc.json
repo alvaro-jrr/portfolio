@@ -1,0 +1,22 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"printWidth": 80,
+	"tabWidth": 2,
+	"useTabs": true,
+	"astro": true,
+	"sortImports": {
+		"newlinesBetween": false
+	},
+	"sortTailwindcss": {
+		"stylesheet": "./src/styles/globals.css",
+		"functions": ["cn"]
+	},
+	"sortPackageJson": false,
+	"ignorePatterns": [
+		"dist/**",
+		".astro/**",
+		".agents/**",
+		"pnpm-lock.yaml",
+		"skills-lock.json"
+	]
+}
